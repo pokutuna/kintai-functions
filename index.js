@@ -53,13 +53,13 @@ exports.kintai = (req, res) => {
   const ajv = new Ajv();
   const isBodyValid = ajv.validate(kintaiSchema, req.body);
   if (!isBodyValid) {
-    return res.status(400).send({ errors: ajv.errors });
+    return res.status(400).json({ errors: ajv.errors });
   }
 
   execKintai(req.body)
-    .then(msg => res.status(200).send({ message: msg }))
+    .then(msg => res.status(200).json({ message: msg }))
     .catch(err => {
       console.error(err);
-      res.status(400).send({ errros: err });
+      res.status(400).json({ errros: err });
     });
 };
