@@ -1,0 +1,13 @@
+{
+  "name": "kintai-functions",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "ISC",
+  "dependencies": {
+    "ajv": "^6.10.2",
+    "puppeteer": "^1.20.0"
+  },
+  "engines": {
+    "node": "10"
+  }
+}
