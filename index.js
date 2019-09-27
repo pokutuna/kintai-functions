@@ -1,6 +1,14 @@
 const puppeteer = require("puppeteer");
 const Ajv = require("ajv");
 
+const actionToButtonName = action => {
+  if (action === "in") return "start_btn";
+  if (action === "out") return "end_btn";
+
+  const hour = new Date().getHours();
+  return 6 <= hour || hour < 15 ? "start_btn" : "end_btn";
+};
+
 const execKintai = async param => {
   const browser = await puppeteer.launch({
     // https://github.com/GoogleChrome/puppeteer/issues/3120
@@ -23,7 +31,7 @@ const execKintai = async param => {
   await frame.type('input[type="text"]', param.employee);
   await frame.type('input[type="password"]', param.password);
 
-  const buttonName = param.action === "in" ? "start_btn" : "end_btn";
+  const buttonName = actionToButtonName(param.action)
   await frame.click(`input[name="${buttonName}"]`);
 
   const message = await frame
@@ -43,7 +51,7 @@ const kintaiSchema = {
     password: { type: "string" },
     action: {
       type: "string",
-      enum: ["in", "out"]
+      enum: ["in", "out", "auto"]
     }
   },
   required: ["company", "employee", "password", "action"]
