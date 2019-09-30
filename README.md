@@ -3,7 +3,7 @@ kintai-functions
 
 ## deploy
 
-`$ gcloud --project ${project} functions deploy kintai --trigger-http --runtime nodejs10`
+`$ gcloud --project ${project} functions deploy kintai --trigger-http --runtime nodejs10 --set-env-vars TZ=Asia/Tokyo`
 
 I recommend to allocate memory 1GB or higher. Or Puppeteer works slow.
 
@@ -23,3 +23,4 @@ JSON
 - `action`
   - `in`: check-in, start work
   - `out`: check-out, leave work
+  - `auto`: check-in when 06:00 ~ 14:59, check-out when else
