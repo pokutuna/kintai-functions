@@ -31,7 +31,7 @@ const execKintai = async param => {
   await frame.type('input[type="text"]', param.employee);
   await frame.type('input[type="password"]', param.password);
 
-  const buttonName = actionToButtonName(param.action)
+  const buttonName = actionToButtonName(param.action);
   await frame.click(`input[name="${buttonName}"]`);
 
   const message = await frame
