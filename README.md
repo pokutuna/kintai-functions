@@ -3,7 +3,7 @@ kintai-functions
 
 ## deploy
 
-`$ gcloud --project ${project} functions deploy kintai --trigger-http --runtime nodejs10 --set-env-vars TZ=Asia/Tokyo`
+`$ gcloud --project ${project} functions deploy kintai --trigger-http --runtime nodejs10 --set-env-vars TZ=Asia/Tokyo --allow-unauthenticated`
 
 I recommend to allocate memory 1GB or higher. Or Puppeteer works slow.
 
