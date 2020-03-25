@@ -23,4 +23,4 @@ JSON
 - `action`
   - `in`: check-in, start work
   - `out`: check-out, leave work
-  - `auto`: check-in when 06:00 ~ 14:59, check-out when else
+  - `auto`: check-in when 08:00 ~ 15:59, check-out when else

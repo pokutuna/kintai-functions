@@ -6,7 +6,7 @@ const actionToButtonName = action => {
   if (action === "out") return "end_btn";
 
   const hour = new Date().getHours();
-  return 6 <= hour && hour < 15 ? "start_btn" : "end_btn";
+  return 8 <= hour && hour < 16 ? "start_btn" : "end_btn";
 };
 
 const execKintai = async param => {
